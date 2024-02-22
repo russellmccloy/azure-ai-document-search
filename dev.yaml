@@ -1,0 +1,3 @@
+resource_groups:
+  name: russ-azure-ai-document-search
+  location: brazilsouth
