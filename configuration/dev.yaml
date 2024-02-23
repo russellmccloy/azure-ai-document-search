@@ -1,3 +1,12 @@
-resource_groups:
-  name: russ-azure-ai-document-search
+resource_group:
+  name: rg-russ-azure-ai-document-search
   location: brazilsouth
+
+azurerm_search_service:
+  name: russ-azure-search-service
+
+azurerm_storage_account:
+  name: russazuresearchsa
+
+azurerm_storage_container:
+  name: russ-docs
