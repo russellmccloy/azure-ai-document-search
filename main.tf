@@ -31,3 +31,12 @@ resource "azurerm_storage_container" "this" {
   storage_account_name  = azurerm_storage_account.this.name
   container_access_type = "private"
 }
+
+resource "azurerm_cognitive_account" "this" {
+  name                = local.config.azurerm_cognitive_account_document_intelligence.name
+  resource_group_name = azurerm_resource_group.this.name
+  location            = azurerm_resource_group.this.location
+  kind                = "FormRecognizer"
+
+  sku_name = "S0"
+}
