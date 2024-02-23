@@ -39,4 +39,8 @@ resource "azurerm_cognitive_account" "this" {
   kind                = "FormRecognizer"
 
   sku_name = "S0"
+
+  identity {
+    type = "SystemAssigned"
+  }
 }

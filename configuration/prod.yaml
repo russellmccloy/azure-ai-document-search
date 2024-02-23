@@ -1,3 +1,15 @@
 resource_group:
-  name: "clear_bank_rg"
-  region: ukwest
+  name: russ-prod-azure-ai-document-search-rg
+  location: brazilsouth
+
+azurerm_search_service:
+  name: russ-prod-azure-search-service
+
+azurerm_storage_account:
+  name: russprodazuresearchsa
+
+azurerm_storage_container:
+  name: russ-prod-docs
+
+azurerm_cognitive_account_document_intelligence:
+  name: russ-prod-azure-document-intelligence

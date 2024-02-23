@@ -1,15 +1,15 @@
 resource_group:
-  name: rg-russ-azure-ai-document-search
+  name: russ-dev-azure-ai-document-search-rg
   location: brazilsouth
 
 azurerm_search_service:
-  name: russ-azure-search-service
+  name: russ-dev-azure-search-service
 
 azurerm_storage_account:
-  name: russazuresearchsa
+  name: russdevazuresearchsa
 
 azurerm_storage_container:
-  name: russ-docs
+  name: russ-dev-docs
 
 azurerm_cognitive_account_document_intelligence:
-  name: russ-azure-document-intelligence
+  name: russ-dev-azure-document-intelligence
