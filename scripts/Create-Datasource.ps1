@@ -23,8 +23,7 @@ $body = @"
         `"connectionString`": `"ResourceId=$($storageAccountId);`"
     },
     `"container`": {
-        `"name`": `"$($storageAccountContainerName)`",
-        `"query`": null
+        `"name`": `"$($storageAccountContainerName)`"
     }
 }
 "@

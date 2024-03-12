@@ -91,5 +91,5 @@ $body = @"
 }
 "@
 
-$response = Invoke-RestMethod "$($searchServiceUrl)/indexes/$($indexName)?api-version=2023-11-01" -Method 'POST' -Headers $headers -Body $body
+$response = Invoke-RestMethod "$($searchServiceUrl)/indexes/$($indexName)?api-version=2023-11-01" -Method 'PUT' -Headers $headers -Body $body
 $response | ConvertTo-Json
