@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/PretendFrontEndSearchClient/PretendFrontEndSearchClient.csproj",
+                "${workspaceFolder}/MVCFrontEnd/MvcAzureAISearch/MvcAzureAISearch.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/PretendFrontEndSearchClient/PretendFrontEndSearchClient.csproj",
+                "${workspaceFolder}/MVCFrontEnd/MvcAzureAISearch/MvcAzureAISearch.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/PretendFrontEndSearchClient/PretendFrontEndSearchClient.csproj"
+                "${workspaceFolder}/MVCFrontEnd/MvcAzureAISearch/MvcAzureAISearch.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
