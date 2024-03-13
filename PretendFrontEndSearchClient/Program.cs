@@ -5,7 +5,7 @@ using System.Text.Json;
 using HttpClient client = new();
 client.DefaultRequestHeaders.Accept.Clear();
 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-client.DefaultRequestHeaders.Add("api-key", "pPLVlYdRfDIrzy55WWID0nCbiWXu7tPrW4gHMUHvhoAzSeBdRp3I");
+client.DefaultRequestHeaders.Add("api-key", "<put secret api key here");
 // client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
 
 await SearchForKeyWordAsync(client);
