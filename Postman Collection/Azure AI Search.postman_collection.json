@@ -371,28 +371,28 @@
 	"variable": [
 		{
 			"key": "prefix_name",
-			"value": "EG01",
+			"value": "<PUT_YOUR_CHOSEN_PREFIX_HERE>",
 			"type": "string"
 		},
 		{
 			"key": "search_service",
-			"value": ""
+			"value": "<PUT_YOUR_AZURE_AI_SEARCH_SERVICE_NAME_HERE>"
 		},
 		{
 			"key": "search_admin_api_key",
-			"value": ""
+			"value": "<PUT_YOUR_AZURE_AI_SEARCH_KEY_HERE>"
 		},
 		{
 			"key": "index_name",
-			"value": ""
+			"value": "<PUT_YOUR_CHOSEN_INDEX_NAME_HERE>"
 		},
 		{
 			"key": "azure_storage_connection_string",
-			"value": ""
+			"value": "<PUT_YOUR_STORAGE_ACCOUNTCONNECTION_STRING_HERE>"
 		},
 		{
 			"key": "container_name",
-			"value": ""
+			"value": "<PUT_YOUR_STORAGE_CONTAINER_NAME_HERE>"
 		}
 	]
 }
