@@ -1,15 +1,20 @@
+general:
+  prefix_name: rmc # this is a prefix for creating unique naming in Azure.
+
 resource_group:
-  name: russ-dev-azure-ai-document-search-rg
+  name: dev-azure-ai-document-search-rg
   location: brazilsouth
 
 azurerm_search_service:
-  name: russ-dev-azure-search-service
+  name: dev-azure-search-service
+  sku: free
 
 azurerm_storage_account:
-  name: russdevazuresearchsa
+  name: devazuresearchsa
 
 azurerm_storage_container:
-  name: russ-dev-docs
+  name: dev-docs
+  access_type: container
 
 # azurerm_cognitive_account_document_intelligence:
 #   name: russ-dev-azure-document-intelligence

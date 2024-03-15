@@ -1,15 +1,20 @@
+general:
+  prefix_name: russ
+
 resource_group:
   name: russ-prod-azure-ai-document-search-rg
   location: brazilsouth
 
 azurerm_search_service:
   name: russ-prod-azure-search-service
+  sku: basic
 
 azurerm_storage_account:
   name: russprodazuresearchsa
 
 azurerm_storage_container:
   name: russ-prod-docs
+  access_type: private
 
-azurerm_cognitive_account_document_intelligence:
-  name: russ-prod-azure-document-intelligence
+# azurerm_cognitive_account_document_intelligence:
+#   name: russ-prod-azure-document-intelligence

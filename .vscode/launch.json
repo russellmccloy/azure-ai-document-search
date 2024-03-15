@@ -9,9 +9,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/MVCFrontEnd/MvcAzureAISearch/bin/Debug/net8.0/MvcAzureAISearch.dll",
+            "program": "${workspaceFolder}/MVCFrontEnd/bin/Debug/net8.0/MvcAzureAISearch.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/MVCFrontEnd/MvcAzureAISearch",
+            "cwd": "${workspaceFolder}/MVCFrontEnd",
             "stopAtEntry": false,
             "serverReadyAction": {
                 "action": "openExternally",

@@ -1,0 +1,44 @@
+@model MvcAzureAISearch.Models.SearchResult
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Search Results</h1>
+
+<div>
+
+       @* @if (Model != null)
+        { *@
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Path</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+
+    @foreach (var item in Model.Details) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetadataStorageName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetadataStoragePath)
+            </td>
+            <td>
+                <img src="@Url.Content(item.MetadataStoragePath)" alt="" width="200px" />
+            </td>
+        </tr>
+}
+                    </tbody>
+                  </table>
+</div>
+<div>
+    @* <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> | *@
+    <a asp-action="Index"> &lt;&lt; Another Search</a>
+</div>
