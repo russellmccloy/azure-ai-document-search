@@ -50,7 +50,7 @@ namespace MvcAzureAISearch.Controllers
 
                 //Sending request to find web api REST service resource 'searchTerm' using HttpClient
                 HttpResponseMessage Res = await client.GetAsync("/indexes/" + indexName + "/docs?search=" + searchTerm + "&$select=metadata_storage_name,metadata_storage_path,language,organizations&$count=true&api-version=2020-06-30");
-                
+
                 if (Res.IsSuccessStatusCode)
                 {
                     var searchResponse = Res.Content.ReadAsStringAsync().Result;
@@ -70,14 +70,10 @@ namespace MvcAzureAISearch.Controllers
                 foreach (var result in searchResult.Details)
                 {
                     // This is ugly but not the focus of what I am trying to achieve so please forgiver me.
-
-                    //var inputText = ValidateBase64EncodedString(result.MetadataStoragePath);
                     string actualStoragePath = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(result.MetadataStoragePath));
 
-                     actualStoragePath = actualStoragePath.Replace("jpg5", "jpg"); // #HACK: cant work out why the Base64Decode doesn't work on these url strings
-                    // var actualStoragePath = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(result.MetadataStoragePath)); // This is terrible
+                    actualStoragePath = actualStoragePath.Replace("jpg5", "jpg"); // #HACK: cant work out why the Base64Decode doesn't work on these url strings
 
-                    //var actualStoragePath = Convert.FromBase64String(inputText); // This is terrible
                     Details newDetails = new Details();
 
                     newDetails.MetadataStorageName = result.MetadataStorageName;
@@ -88,24 +84,6 @@ namespace MvcAzureAISearch.Controllers
 
                 return View("SearchResults", modifiedSearchResult);
             }
-        }
-
-        private static string ValidateBase64EncodedString(string inputText)
-        {
-            string stringToValidate = inputText;
-            stringToValidate = stringToValidate.Replace('-', '+'); // 62nd char of encoding
-            stringToValidate = stringToValidate.Replace('_', '/'); // 63rd char of encoding
-            switch (stringToValidate.Length % 4) // Pad with trailing '='s
-            {
-                case 0: break; // No pad chars in this case
-                case 2: stringToValidate += "=="; break; // Two pad chars
-                case 3: stringToValidate += "="; break; // One pad char
-                default:
-                    throw new System.Exception(
-             "Illegal base64url string!");
-            }
-
-            return stringToValidate;
         }
     }
 }

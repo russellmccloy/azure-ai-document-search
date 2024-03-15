@@ -1,5 +1,5 @@
 general:
-  prefix_name: rmc # this is a prefix for creating unique naming in Azure.
+  prefix_name: rdmc01 # this is a prefix for creating unique naming in Azure.
 
 resource_group:
   name: dev-azure-ai-document-search-rg
