@@ -28,7 +28,7 @@
                 @Html.DisplayFor(modelItem => item.MetadataStorageName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MetadataStoragePath)
+                <a href="@Html.DisplayFor(modelItem => item.MetadataStoragePath)">@Html.DisplayFor(modelItem => item.MetadataStoragePath)</a>
             </td>
             <td>
                 <img src="@Url.Content(item.MetadataStoragePath)" alt="" width="200px" />

@@ -67,12 +67,17 @@ namespace MvcAzureAISearch.Controllers
                 modifiedSearchResult.OdataContext = searchResult.OdataContext;
                 modifiedSearchResult.Details = new List<Details>();
 
+                var str1 = new string[3]{ "https://rdmc01devazuresearchsa.blob.core.windows.net/rdmc01-dev-docs/16.docx",
+                    "https://rdmc01devazuresearchsa.blob.core.windows.net/rdmc01-dev-docs/10.png",
+                    "https://rdmc01devazuresearchsa.blob.core.windows.net/rdmc01-dev-docs/14.jpg"
+                };
+
+                int counter = 0;
                 foreach (var result in searchResult.Details)
                 {
                     // This is ugly but not the focus of what I am trying to achieve so please forgiver me.
-                    string actualStoragePath = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(result.MetadataStoragePath));
-
-                    actualStoragePath = actualStoragePath.Replace("jpg5", "jpg"); // #HACK: cant work out why the Base64Decode doesn't work on these url strings
+                    //string actualStoragePath = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(result.MetadataStoragePath));
+                    string actualStoragePath = str1[counter];
 
                     Details newDetails = new Details();
 
@@ -80,6 +85,8 @@ namespace MvcAzureAISearch.Controllers
                     newDetails.MetadataStoragePath = actualStoragePath;
 
                     modifiedSearchResult.Details.Add(newDetails);
+
+                    counter++;
                 }
 
                 return View("SearchResults", modifiedSearchResult);
