@@ -23,5 +23,5 @@ resource "azurerm_storage_account" "this" {
 resource "azurerm_storage_container" "this" {
   name                  = "${local.prefix_name}-${local.config.azurerm_storage_container.name}"
   storage_account_name  = azurerm_storage_account.this.name
-  container_access_type = local.config.azurerm_storage_container.access_type # for the demo it's not private but it should be
+  container_access_type = local.config.azurerm_storage_container.access_type # for this proof of concept the container type not private but it should be to ensure the security of your documents
 }
