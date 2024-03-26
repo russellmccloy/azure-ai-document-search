@@ -1,5 +1,3 @@
-# TODO: Tidy up all Terraform and run TF fmt
-
 resource "azurerm_resource_group" "this" {
   name     = "${local.prefix_name}-${local.config.resource_group.name}"
   location = local.config.resource_group.location

@@ -77,12 +77,15 @@ namespace MvcAzureAISearch.Controllers
                 {
                     // This is ugly but not the focus of what I am trying to achieve so please forgiver me.
                     //string actualStoragePath = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(result.MetadataStoragePath));
-                    string actualStoragePath = str1[counter];
+                    // string actualStoragePath = result.MetadataStoragePath // str1[counter];
+
+                    byte[] data = Convert.FromBase64String(result.MetadataStoragePath);
+                    string decodedString = System.Text.Encoding.UTF8.GetString(data);
 
                     Details newDetails = new Details();
 
                     newDetails.MetadataStorageName = result.MetadataStorageName;
-                    newDetails.MetadataStoragePath = actualStoragePath;
+                    newDetails.MetadataStoragePath = decodedString; //actualStoragePath;
 
                     modifiedSearchResult.Details.Add(newDetails);
 
