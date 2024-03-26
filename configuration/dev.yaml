@@ -15,6 +15,3 @@ azurerm_storage_account:
 azurerm_storage_container:
   name: dev-docs
   access_type: container
-
-# azurerm_cognitive_account_document_intelligence:
-#   name: russ-dev-azure-document-intelligence
