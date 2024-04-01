@@ -1,3 +1,5 @@
+# NOTE: I don't use a backend to store my Terraform state as this is just a proof of concept.
+
 # terraform {
 #   backend "azurerm" {
 #     resource_group_name  = "NOT_SET"
