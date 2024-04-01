@@ -36,6 +36,8 @@ namespace MvcAzureAISearch.Controllers
 
             SearchResult searchResult = new SearchResult();
 
+            _logger.LogInformation("Start calling search service.");
+
             using (var client = new HttpClient())
             {
                 //Passing service base url
