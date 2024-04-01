@@ -58,34 +58,34 @@ namespace MvcAzureAISearch.Controllers
                     //Deserializing the response received from web api and storing into the Employee list
                     searchResult = JsonConvert.DeserializeObject<SearchResult>(searchResponse);
                     //returning the employee list to view
-
                 }
 
+                // Create a fresh new object to hold the modified results
                 List<Details> modifiedSearchResultDetails = new List<Details>();
                 SearchResult modifiedSearchResult = new SearchResult();
                 modifiedSearchResult.OdataCount = searchResult.OdataCount;
                 modifiedSearchResult.OdataContext = searchResult.OdataContext;
                 modifiedSearchResult.Details = new List<Details>();
 
-                var str1 = new string[3]{ "https://rdmc01devazuresearchsa.blob.core.windows.net/rdmc01-dev-docs/16.docx",
-                    "https://rdmc01devazuresearchsa.blob.core.windows.net/rdmc01-dev-docs/10.png",
-                    "https://rdmc01devazuresearchsa.blob.core.windows.net/rdmc01-dev-docs/14.jpg"
-                };
-
                 int counter = 0;
                 foreach (var result in searchResult.Details)
                 {
-                    // This is ugly but not the focus of what I am trying to achieve so please forgiver me.
-                    //string actualStoragePath = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(result.MetadataStoragePath));
-                    // string actualStoragePath = result.MetadataStoragePath // str1[counter];
 
-                    byte[] data = Convert.FromBase64String(result.MetadataStoragePath);
+                    // Make sure the strings are multiples of 4. I think there is a bug in the output of Azure AI search as sometimes it adds an extra zero (0)
+                    string base64String = result.MetadataStoragePath;
+                    var rem = base64String.Length % 4;
+
+                    base64String += new string('=', 4 - rem);
+                    Console.WriteLine(base64String);
+                    Console.WriteLine(System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(base64String)));
+
+                    byte[] data = Convert.FromBase64String(base64String);
                     string decodedString = System.Text.Encoding.UTF8.GetString(data);
 
                     Details newDetails = new Details();
 
                     newDetails.MetadataStorageName = result.MetadataStorageName;
-                    newDetails.MetadataStoragePath = decodedString; //actualStoragePath;
+                    newDetails.MetadataStoragePath = decodedString;
 
                     modifiedSearchResult.Details.Add(newDetails);
 
