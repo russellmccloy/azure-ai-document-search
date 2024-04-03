@@ -1,20 +1,17 @@
 general:
-  prefix_name: russ
+  prefix_name: rdmc01 # this is a prefix for creating unique naming in Azure.
 
 resource_group:
-  name: russ-prod-azure-ai-document-search-rg
+  name: prod-azure-ai-document-search-rg
   location: brazilsouth
 
 azurerm_search_service:
-  name: russ-prod-azure-search-service
-  sku: basic
+  name: prod-azure-search-service
+  sku: free
 
 azurerm_storage_account:
-  name: russprodazuresearchsa
+  name: prodazuresearchsa
 
 azurerm_storage_container:
-  name: russ-prod-docs
-  access_type: private
-
-# azurerm_cognitive_account_document_intelligence:
-#   name: russ-prod-azure-document-intelligence
+  name: prod-docs
+  access_type: container
